@@ -1,0 +1,4 @@
+10001 鹤子 45 Salesman 3000.5
+10002 幸子 37 Manager 
+10003 雪子 32 Manager 
+10004 妙子 24 SalesManager 10110.8
