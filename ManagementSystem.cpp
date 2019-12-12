@@ -6,10 +6,10 @@
 using namespace std;
 
 class Staff{
-    protected://ÕâÑùÅÉÉúÀàÒ²ÄÜ¼Ì³Ğ
-    string no; //±àºÅ
-    string name; //ĞÕÃû
-    int age; //ÄêÁä
+    protected://è¿™æ ·æ´¾ç”Ÿç±»ä¹Ÿèƒ½ç»§æ‰¿
+    string no; //ç¼–å·
+    string name; //å§“å
+    int age; //å¹´é¾„
 
     public:
     Staff(string no, string name, int age){
@@ -18,22 +18,22 @@ class Staff{
         this->age = age;
     }
     virtual ~Staff(){}
-    //ÉùÃ÷Îªpublic, ¶ÔÍâ½Ó¿Ú
-    virtual void showData() const = 0; //Êä³öÔ±¹¤ĞÅÏ¢(´¿Ğéº¯Êı-ÅÉÉúÀà±ØĞëÊµÏÖ)
-    virtual string getTitle() const = 0;//µÃµ½Ô±¹¤µÄÖ°³Æ(´¿Ğéº¯Êı)
-    string getNo() const{ return no;} //µÃµ½Ô±¹¤µÄ±àºÅ(³£º¯Êı)
-    void setNo(string no){this->no = no;};//ĞŞ¸ÄÔ±¹¤±àºÅ
-    string getName() const{return name;}//µÃµ½Ô±¹¤µÄĞÕÃû
-    void setName(string name){this->name = name;};//ĞŞ¸ÄÔ±¹¤ĞÕÃû
-    int getAge() const{return age;}//µÃµ½Ô±¹¤µÄÄêÁä
-    void setAge(int age){this->age = age;};//ĞŞ¸ÄÔ±¹¤ÄêÁä
-    virtual double getSales()const{}//µÃµ½Ô±¹¤ÏúÊÛ¶î(Èç¹ûÓĞµÄ»°)(Ğéº¯Êı-ÅÉÉúÀà¿É²»ÊµÏÖ)
-    virtual void setSales(double sales){}//ĞŞ¸ÄÔ±¹¤ÏúÊÛ¶î(Èç¹ûÓĞµÄ»°) 
+    //å£°æ˜ä¸ºpublic, å¯¹å¤–æ¥å£
+    virtual void showData() const = 0; //è¾“å‡ºå‘˜å·¥ä¿¡æ¯(çº¯è™šå‡½æ•°-æ´¾ç”Ÿç±»å¿…é¡»å®ç°)
+    virtual string getTitle() const = 0;//å¾—åˆ°å‘˜å·¥çš„èŒç§°(çº¯è™šå‡½æ•°)
+    string getNo() const{ return no;} //å¾—åˆ°å‘˜å·¥çš„ç¼–å·(å¸¸å‡½æ•°)
+    void setNo(string no){this->no = no;};//ä¿®æ”¹å‘˜å·¥ç¼–å·
+    string getName() const{return name;}//å¾—åˆ°å‘˜å·¥çš„å§“å
+    void setName(string name){this->name = name;};//ä¿®æ”¹å‘˜å·¥å§“å
+    int getAge() const{return age;}//å¾—åˆ°å‘˜å·¥çš„å¹´é¾„
+    void setAge(int age){this->age = age;};//ä¿®æ”¹å‘˜å·¥å¹´é¾„
+    virtual double getSales()const{}//å¾—åˆ°å‘˜å·¥é”€å”®é¢(å¦‚æœæœ‰çš„è¯)(è™šå‡½æ•°-æ´¾ç”Ÿç±»å¯ä¸å®ç°)
+    virtual void setSales(double sales){}//ä¿®æ”¹å‘˜å·¥é”€å”®é¢(å¦‚æœæœ‰çš„è¯) 
 };
 
 class Salesman: virtual public Staff{
     protected:
-    double sales;//ÏúÊÛ¶î
+    double sales;//é”€å”®é¢
 
     public:
     Salesman(string no, string name, int age, double sales): Staff(no, name, age){
@@ -44,25 +44,25 @@ class Salesman: virtual public Staff{
     }
     virtual ~Salesman(){}
 
-    virtual void showData() const{ //´¿Ğéº¯ÊıÖØĞ´¸ñÊ½ĞèÑÏ¸ñ 
-        cout<<"±àºÅ:"<<no<<" ";
-        cout<<"ĞÕÃû:"<<name<<" ";
-        cout<<"ÄêÁä:"<<age<<" ";
-        cout<<"Ö°³Æ:"<<"Salesman"<<"     ";
-        cout<<"ÏúÊÛ¶î:"<<sales<<endl;
+    virtual void showData() const{ //çº¯è™šå‡½æ•°é‡å†™æ ¼å¼éœ€ä¸¥æ ¼ 
+        cout<<"ç¼–å·:"<<no<<" ";
+        cout<<"å§“å:"<<name<<" ";
+        cout<<"å¹´é¾„:"<<age<<" ";
+        cout<<"èŒç§°:"<<"Salesman"<<"     ";
+        cout<<"é”€å”®é¢:"<<sales<<endl;
     }
 
-    virtual string getTitle() const{//ÖØĞ´,·µ»Ø¸÷¸öÀàÖ°³Æ
+    virtual string getTitle() const{//é‡å†™,è¿”å›å„ä¸ªç±»èŒç§°
         return "Salesman";
     }
 
     double getSales() const{return this->sales;}
-    void setSales(double sales){this->sales = sales;};//ĞŞ¸ÄÔ±¹¤Sales
+    void setSales(double sales){this->sales = sales;};//ä¿®æ”¹å‘˜å·¥Sales
 };
 
 
 class Manager: virtual public Staff{
-    //Êı¾İ³ÉÔ±¶¼ÓÉ»ùÀà¼Ì³ĞÀ´
+    //æ•°æ®æˆå‘˜éƒ½ç”±åŸºç±»ç»§æ‰¿æ¥
     public:
     Manager(string no, string name, int age): Staff(no, name, age){
         this->no = no;
@@ -72,19 +72,19 @@ class Manager: virtual public Staff{
     virtual ~Manager(){}
 
     virtual void showData() const{
-        cout<<"±àºÅ:"<<no<<" ";
-        cout<<"ĞÕÃû:"<<name<<" ";
-        cout<<"ÄêÁä:"<<age<<" ";
-        cout<<"Ö°³Æ:"<<"Manager"<<endl;
+        cout<<"ç¼–å·:"<<no<<" ";
+        cout<<"å§“å:"<<name<<" ";
+        cout<<"å¹´é¾„:"<<age<<" ";
+        cout<<"èŒç§°:"<<"Manager"<<endl;
     }
     virtual string getTitle() const{
         return "Manager";
     }
-    //ËäÈ»¼Ì³ĞÁËgetSales()ºÍsetSales()µ«º¯ÊıÌåÎª¿Õ
+    //è™½ç„¶ç»§æ‰¿äº†getSales()å’ŒsetSales()ä½†å‡½æ•°ä½“ä¸ºç©º
 };
 
 class SalesManager: public Salesman, public Manager{
-    //salesÓÉSalesman¼Ì³ĞÀ´
+    //salesç”±Salesmanç»§æ‰¿æ¥
     public:
     SalesManager(string no, string name, int age, double sales): Staff(no, name, age),
     Salesman(no, name, age, sales), Manager(no, name, age){
@@ -96,48 +96,48 @@ class SalesManager: public Salesman, public Manager{
     virtual ~SalesManager(){}
 
     virtual void showData() const{
-        cout<<"±àºÅ:"<<no<<" ";
-        cout<<"ĞÕÃû:"<<name<<" ";
-        cout<<"ÄêÁä:"<<age<<" ";
-        cout<<"Ö°³Æ:"<<"SalesManager"<<" ";
-        cout<<"ÏúÊÛ¶î:"<<sales<<endl;
+        cout<<"ç¼–å·:"<<no<<" ";
+        cout<<"å§“å:"<<name<<" ";
+        cout<<"å¹´é¾„:"<<age<<" ";
+        cout<<"èŒç§°:"<<"SalesManager"<<" ";
+        cout<<"é”€å”®é¢:"<<sales<<endl;
     }
     virtual string getTitle() const{
         return "SalesManager";
     }
-    double getSales() const{return this->sales;}//·ÀÖ¹ÆçÒå, ÖØĞ´
+    double getSales() const{return this->sales;}//é˜²æ­¢æ­§ä¹‰, é‡å†™
     void setSales(double sales){this->sales = sales;};
 };
 
-struct Node{ //vectorÖĞµÄÔªËØ
-    Staff *staff;//Ö¸ÏòStaffµÄÖ¸Õë
-    bool isEmployed;//´ı½â¹ÍÓÃ
+struct Node{ //vectorä¸­çš„å…ƒç´ 
+    Staff *staff;//æŒ‡å‘Staffçš„æŒ‡é’ˆ
+    bool isEmployed;//å¾…è§£é›‡ç”¨
 };
 
 class ManagementSystem{
     private:
-    vector<Node> vec;//¶¯Ì¬Êı×é
-    int StaffNum;//Ô±¹¤×ÜÈËÊı
-    //private,½«¹¦ÄÜ·â×°, ÓÃ»§Ö»ÄÜÍ¨¹ıSelectFunction()½Ó¿Úµ÷ÓÃ
-    void fileIn();//ÎÄ¼şÂ¼Èë
-    void showStaff();//ÏÔÊ¾ËùÓĞĞÅÏ¢
-    void showCount();//ÏÔÊ¾ËùÓĞÔ±¹¤ÈËÊı
-    void searchStaff();//ÏÔÊ¾µ¥¸öÈËµÄĞÅÏ¢
-    void addData();//Ìí¼ÓÔ±¹¤
-    void markStaffToBeFired();//±ê¼Ç´ı½â¹ÍÔ±¹¤
-    void updateStaff();//ĞŞ¸ÄÔ±¹¤ĞÅÏ¢
-    void fireStaffs();//½â¹ÍisEmployedÎªfalseµÄÔ±¹¤
-    void recombineFile();//±£´æÎÄ¼ş²¢ÍË³ö
+    vector<Node> vec;//åŠ¨æ€æ•°ç»„
+    int StaffNum;//å‘˜å·¥æ€»äººæ•°
+    //private,å°†åŠŸèƒ½å°è£…, ç”¨æˆ·åªèƒ½é€šè¿‡SelectFunction()æ¥å£è°ƒç”¨
+    void fileIn();//æ–‡ä»¶å½•å…¥
+    void showStaff();//æ˜¾ç¤ºæ‰€æœ‰ä¿¡æ¯
+    void showCount();//æ˜¾ç¤ºæ‰€æœ‰å‘˜å·¥äººæ•°
+    void searchStaff();//æ˜¾ç¤ºå•ä¸ªäººçš„ä¿¡æ¯
+    void addData();//æ·»åŠ å‘˜å·¥
+    void markStaffToBeFired();//æ ‡è®°å¾…è§£é›‡å‘˜å·¥
+    void updateStaff();//ä¿®æ”¹å‘˜å·¥ä¿¡æ¯
+    void fireStaffs();//è§£é›‡isEmployedä¸ºfalseçš„å‘˜å·¥
+    void recombineFile();//ä¿å­˜æ–‡ä»¶å¹¶é€€å‡º
 
-    //¸¨Öúº¯Êı
-    void hire(string no, string name, int age, string title, double sales = 0);//ÍùvectorÖĞĞÂ¼Ó½áµã
-    bool hasRepeatted(string no);//Ô±¹¤ºÅÎªÂë,ÅĞ¶ÏvectorÖĞÊÇ·ñÒÑ´æÔÚÏàÍ¬Ô±¹¤ºÅ
-    bool inTitles(string title){//ÅĞ¶ÏÊä³ötitleÊÇ·ñÕıÈ·
+    //è¾…åŠ©å‡½æ•°
+    void hire(string no, string name, int age, string title, double sales = 0);//å¾€vectorä¸­æ–°åŠ ç»“ç‚¹
+    bool hasRepeatted(string no);//å‘˜å·¥å·ä¸ºç ,åˆ¤æ–­vectorä¸­æ˜¯å¦å·²å­˜åœ¨ç›¸åŒå‘˜å·¥å·
+    bool inTitles(string title){//åˆ¤æ–­è¾“å‡ºtitleæ˜¯å¦æ­£ç¡®
         return (!title.compare("Salesman"))||(!title.compare("Manager"))||(!title.compare("SalesManager"));
     }
-    bool hasSales(string title){//ÅĞ¶ÏÊÇ·ñÓµÓĞsalesÕâ¸öÊı¾İ³ÉÔ±
+    bool hasSales(string title){//åˆ¤æ–­æ˜¯å¦æ‹¥æœ‰salesè¿™ä¸ªæ•°æ®æˆå‘˜
         return ((!title.compare("Salesman")) || (!title.compare("SalesManager")));}
-    bool isSalesman(string title){return (!title.compare("Salesman"));}//ÅĞ¶ÏÊÇ·ñÊÇManager
+    bool isSalesman(string title){return (!title.compare("Salesman"));}//åˆ¤æ–­æ˜¯å¦æ˜¯Manager
     bool isManager(string title){return (!title.compare("Manager"));}
     bool isSalesManager(string title){return (!title.compare("SalesManager"));}
     int getStaffNum(){return StaffNum;}
@@ -145,12 +145,12 @@ class ManagementSystem{
     public:
     ManagementSystem();
     ~ManagementSystem(){}
-    void SelectFunction();//Ñ¡Ôñ¹¦ÄÜ
+    void SelectFunction();//é€‰æ‹©åŠŸèƒ½
 };
 
 ManagementSystem::ManagementSystem(){
     this->StaffNum = 0;
-    fileIn();//¶Á½Ó¿Ú
+    fileIn();//è¯»æ¥å£
 }
 
 void ManagementSystem::fileIn(){
@@ -159,22 +159,22 @@ void ManagementSystem::fileIn(){
     double sales;
 
     ifstream infile("staff.txt", ios::in);
-    if(!infile) cout<<"ÎÄ¼şĞÂ´´½¨, ÇëÏÈÌí¼ÓÔ±¹¤ÔÙ²Ù×÷!\n"<<endl;
-    infile.seekg(0, ios::end); //½«ÎÄ¼şÖ¸ÕëÖ¸ÏòÎÄ¼şÄ©¶Ë 
-	streampos fp = infile.tellg(); //fpÎªÎÄ¼şÖ¸ÕëµÄÆ«ÒÆÁ¿ 
-	if (int(fp) == 0) cout<<"ÎÄ¼şÎª¿Õ, ÇëÏÈÌí¼ÓÔ±¹¤ÔÙ²Ù×÷!\n"<<endl;
-	infile.seekg(0, ios::beg); //½«ÎÄ¼şÖ¸ÕëÖ¸ÏòÎÄ¼şÄ©¶Ë
-    while(infile >> no >> name >> age >> title){ //ÒÀ´ÎÂ¼ÈëÊı¾İ
+    if(!infile) cout<<"æ–‡ä»¶æ–°åˆ›å»º, è¯·å…ˆæ·»åŠ å‘˜å·¥å†æ“ä½œ!\n"<<endl;
+    infile.seekg(0, ios::end); //å°†æ–‡ä»¶æŒ‡é’ˆæŒ‡å‘æ–‡ä»¶æœ«ç«¯ 
+	streampos fp = infile.tellg(); //fpä¸ºæ–‡ä»¶æŒ‡é’ˆçš„åç§»é‡ 
+	if (int(fp) == 0) cout<<"æ–‡ä»¶ä¸ºç©º, è¯·å…ˆæ·»åŠ å‘˜å·¥å†æ“ä½œ!\n"<<endl;
+	infile.seekg(0, ios::beg); //å°†æ–‡ä»¶æŒ‡é’ˆæŒ‡å‘æ–‡ä»¶æœ«ç«¯
+    while(infile >> no >> name >> age >> title){ //ä¾æ¬¡å½•å…¥æ•°æ®
         sales = 0;
         if (hasSales(title)) infile >> sales;
         hire(no, name, age, title, sales);
     }
 }
 
-//ÍùÁ´±íÄ©Î²Ìí¼ÓÒ»¸öĞÂ½áµã, Í¬Ê±StaffNum++;
+//å¾€é“¾è¡¨æœ«å°¾æ·»åŠ ä¸€ä¸ªæ–°ç»“ç‚¹, åŒæ—¶StaffNum++;
 void ManagementSystem::hire(string no, string name, int age, string title, double sales){
-    Node *newNode = (Node *) malloc(sizeof(Node)); //·ÖÅäÒ»¿éĞÂ½áµãµÄ¿Õ¼ä, ²¢ÈÃ newNodeÖ¸ÏòËü
-    //¸ù¾İ²»Í¬µÄÖ°Î»,Éú³É²»Í¬µÄNode
+    Node *newNode = (Node *) malloc(sizeof(Node)); //åˆ†é…ä¸€å—æ–°ç»“ç‚¹çš„ç©ºé—´, å¹¶è®© newNodeæŒ‡å‘å®ƒ
+    //æ ¹æ®ä¸åŒçš„èŒä½,ç”Ÿæˆä¸åŒçš„Node
     if (isSalesman(title)) {
         newNode->staff = new Salesman(no, name, age, sales);;
         newNode->isEmployed = true;
@@ -186,13 +186,13 @@ void ManagementSystem::hire(string no, string name, int age, string title, doubl
         newNode->isEmployed = true;
     }
     else{
-        cout<<"ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë:"<<endl;
+        cout<<"è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥:"<<endl;
     }
     vec.push_back(*newNode);
-    StaffNum++;//Ô±¹¤ÊıÒª¼ÇµÃ¼Ó1
+    StaffNum++;//å‘˜å·¥æ•°è¦è®°å¾—åŠ 1
 }
 
-//Êä³öËùÓĞÔ±¹¤µÄĞÅÏ¢
+//è¾“å‡ºæ‰€æœ‰å‘˜å·¥çš„ä¿¡æ¯
 void ManagementSystem::showStaff(){
     for(Node it: vec){
             cout << "isEmployed:" << it.isEmployed <<" ";
@@ -200,7 +200,7 @@ void ManagementSystem::showStaff(){
     }
 }
 
-//ÅĞ¶ÏÔ±¹¤ºÅÊÇ·ñÖØ¸´
+//åˆ¤æ–­å‘˜å·¥å·æ˜¯å¦é‡å¤
 bool ManagementSystem::hasRepeatted(string no){
     vector<Node>::iterator it;
         for(it = vec.begin(); it != vec.end(); it++){
@@ -210,17 +210,17 @@ bool ManagementSystem::hasRepeatted(string no){
         }
 }
 
-//°´Ô±¹¤ºÅ»òÕßĞÕÃûË÷ÒıĞÅÏ¢
+//æŒ‰å‘˜å·¥å·æˆ–è€…å§“åç´¢å¼•ä¿¡æ¯
 void ManagementSystem::searchStaff(){
 	string searchNo, searchName;
     while(1){
     int c;
-    cout<<"Ñ¡Ôñ¹Ø¼ü´Ê(°´0ÍË³ö):(1)¸ù¾İÔ±¹¤ºÅ(2)¸ù¾İĞÕÃû"<<endl;
+    cout<<"é€‰æ‹©å…³é”®è¯(æŒ‰0é€€å‡º):(1)æ ¹æ®å‘˜å·¥å·(2)æ ¹æ®å§“å"<<endl;
     cin>>c;
-    if (cin.good() == 1);//ÅĞ¶ÏÊÇ·ñÊäÈëµÄÊÇÕûÊı
-    else{cout<<"ÊäÈë´íÎó."<<endl;cin.clear();cin.sync();continue;}
+    if (cin.good() == 1);//åˆ¤æ–­æ˜¯å¦è¾“å…¥çš„æ˜¯æ•´æ•°
+    else{cout<<"è¾“å…¥é”™è¯¯."<<endl;cin.clear();cin.sync();continue;}
     if(c == 1){
-        cout<<"ÇëÊäÈëÔ±¹¤ºÅ:";
+        cout<<"è¯·è¾“å…¥å‘˜å·¥å·:";
         cin>>searchNo;
         for(Node it: vec){
            if(!searchNo.compare(it.staff->getNo())){
@@ -229,13 +229,13 @@ void ManagementSystem::searchStaff(){
                 return;
             }      
         }
-        cin.ignore(100, '\n');//·ÀÖ¹ÊäÈë¶àÓàĞÅÏ¢
-        cout<<"²éÎŞ´ËÈË."<<endl;        
+        cin.ignore(100, '\n');//é˜²æ­¢è¾“å…¥å¤šä½™ä¿¡æ¯
+        cout<<"æŸ¥æ— æ­¤äºº."<<endl;        
         break;
     }
     else if(c == 2){
     	bool flag = false; 
-        cout<<"ÇëÊäÈëÔ±¹¤ĞÕÃû:";//Ğè¿¼ÂÇ¿ÉÄÜÖØÃûµÄÇé¿ö
+        cout<<"è¯·è¾“å…¥å‘˜å·¥å§“å:";//éœ€è€ƒè™‘å¯èƒ½é‡åçš„æƒ…å†µ
         cin>>searchName;
         for(Node it: vec){
            if(!searchName.compare(it.staff->getName())){
@@ -246,17 +246,17 @@ void ManagementSystem::searchStaff(){
         }
         if(flag) return;
         cin.ignore(100, '\n');
-        cout<<"²éÎŞ´ËÈË."<<endl;
+        cout<<"æŸ¥æ— æ­¤äºº."<<endl;
         break;
     }
     else if(c == 0) return;
     else{
-        cout<<"ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë"<<endl;
+        cout<<"è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥"<<endl;
     }
     }
 }
 
-//Êä³öÈËÊı
+//è¾“å‡ºäººæ•°
 void ManagementSystem::showCount(){
     int SalesmanNum=0, ManagerNum=0, SalesmanagerNum=0;
     vector<Node>::iterator it;
@@ -267,85 +267,85 @@ void ManagementSystem::showCount(){
         else if(isSalesManager(ss)) SalesmanagerNum++;
         else{}
     }
-    cout<<"×ÜÈËÊı:"<<getStaffNum()<<endl<<"SalesmanÈËÊı:"<<SalesmanNum
-        <<endl<<"ManagerÈËÊı:"<<ManagerNum<<endl<<"SalesmanagerÈËÊı:"<<SalesmanagerNum;
+    cout<<"æ€»äººæ•°:"<<getStaffNum()<<endl<<"Salesmanäººæ•°:"<<SalesmanNum
+        <<endl<<"Manageräººæ•°:"<<ManagerNum<<endl<<"Salesmanageräººæ•°:"<<SalesmanagerNum;
 }
 
-void ManagementSystem::addData(){//Ğè¿¼ÂÇÔ±¹¤ºÅÖØ¸´Çé¿ö
+void ManagementSystem::addData(){//éœ€è€ƒè™‘å‘˜å·¥å·é‡å¤æƒ…å†µ
     int age;
     string no, name, title;
     double sales;
     while(1){
-    cout<<"ÇëÊäÈëÔ±¹¤ºÅ£¬ĞÕÃû£¬ÄêÁä£¬Ö°Î»£¬(ÓªÏú¶î):(Èç¹ûÏëÍË³öÇëÊäÈë'#'"<<endl;
-    cin>>no; //ÅĞ¶ÏÊäÈëÊÇ·ñÎª#
+    cout<<"è¯·è¾“å…¥å‘˜å·¥å·ï¼Œå§“åï¼Œå¹´é¾„ï¼ŒèŒä½ï¼Œ(è¥é”€é¢):(å¦‚æœæƒ³é€€å‡ºè¯·è¾“å…¥'#'"<<endl;
+    cin>>no; //åˆ¤æ–­è¾“å…¥æ˜¯å¦ä¸º#
     if(!no.compare("#")) return;
     cin>>name;
-    cin>>age;//age ĞèÎªintĞÍ
-    if (cin.good() == 1){cin.ignore(100, ' ');cin>>title;}//Èç¹ûÊÇdoubleĞÍÔòÖ»È¡Ğ¡ÊıµãÇ°µÄ 
-    else{cout<<"ÄêÁäĞèÎªÕûÊı."<<endl;cin.clear();cin.sync();continue;}
-    //cin.ignore(100, ' ');//Èç¹ûÊÇdoubleĞÍÔòÖ»È¡Ğ¡ÊıµãÇ°µÄ 
-    if(inTitles(title));// titleÖ»ÄÜÎª3ÖÖ
-    else{cout<<"Ö°Î»ÊäÈë´íÎó."<<endl;cin.ignore(100, '\n');continue;}
-    if(hasRepeatted(no)){cout<<"Ô±¹¤±àºÅÖØ¸´."<<endl;continue;}
+    cin>>age;//age éœ€ä¸ºintå‹
+    if (cin.good() == 1){cin.ignore(100, ' ');cin>>title;}//å¦‚æœæ˜¯doubleå‹åˆ™åªå–å°æ•°ç‚¹å‰çš„ 
+    else{cout<<"å¹´é¾„éœ€ä¸ºæ•´æ•°."<<endl;cin.clear();cin.sync();continue;}
+    //cin.ignore(100, ' ');//å¦‚æœæ˜¯doubleå‹åˆ™åªå–å°æ•°ç‚¹å‰çš„ 
+    if(inTitles(title));// titleåªèƒ½ä¸º3ç§
+    else{cout<<"èŒä½è¾“å…¥é”™è¯¯."<<endl;cin.ignore(100, '\n');continue;}
+    if(hasRepeatted(no)){cout<<"å‘˜å·¥ç¼–å·é‡å¤."<<endl;continue;}
     if (hasSales(title)){
     	while(1){
-    		cin >> sales;cin.ignore(100, '\n');//·ÀÖ¹ÓÃ»§¶àÊäÈëÊı¾İ
+    		cin >> sales;cin.ignore(100, '\n');//é˜²æ­¢ç”¨æˆ·å¤šè¾“å…¥æ•°æ®
 			if (cin.good() == 1);
-    		else{cout<<"ÏúÊÛ¶îĞèÎª¸´Êı."<<endl;cin.clear();cin.sync();continue;}
+    		else{cout<<"é”€å”®é¢éœ€ä¸ºå®æ•°."<<endl;cin.clear();cin.sync();continue;}
     		break; 
 		}
 	}
     else{
-    	if(cin.eof()){//·ÀÖ¹ÓÃ»§¶àÓàÊäÈë 
-    		cout<<"(¸ÃÔ±¹¤ÎŞĞèÊäÈëÏúÊÛ¶î."<<endl; 
+    	if(cin.eof()){//é˜²æ­¢ç”¨æˆ·å¤šä½™è¾“å…¥ 
+    		cout<<"(è¯¥å‘˜å·¥æ— éœ€è¾“å…¥é”€å”®é¢."<<endl; 
     		cin.ignore(100, '\n');	
 		}
 	} 
 	
-    hire(no, name, age, title, sales);//Â¼Èë²¢ÍË³öº¯Êı
+    hire(no, name, age, title, sales);//å½•å…¥å¹¶é€€å‡ºå‡½æ•°
     break;
     }
-    cout << "Ô±¹¤ĞÅÏ¢ÒÑÂ¼Èë" << endl;
+    cout << "å‘˜å·¥ä¿¡æ¯å·²å½•å…¥" << endl;
 }
 
 void ManagementSystem::markStaffToBeFired(){
 	string searchNo, searchName;
     while(1){
-    cout<<"Ñ¡Ôñ¹Ø¼ü´Ê(°´0ÍË³ö):(1)¸ù¾İÔ±¹¤ºÅ(2)¸ù¾İĞÕÃû"<<endl;
+    cout<<"é€‰æ‹©å…³é”®è¯(æŒ‰0é€€å‡º):(1)æ ¹æ®å‘˜å·¥å·(2)æ ¹æ®å§“å"<<endl;
     int c;cin>>c;
     if (cin.good() == 1);
-    else{cout<<"ÊäÈë´íÎó."<<endl;cin.clear();cin.sync();continue;}
+    else{cout<<"è¾“å…¥é”™è¯¯."<<endl;cin.clear();cin.sync();continue;}
     if(c == 1){
-        cout<<"ÇëÊäÈëÔ±¹¤ºÅ:";
+        cout<<"è¯·è¾“å…¥å‘˜å·¥å·:";
         cin>>searchNo;
-        for(Node &it: vec){//´Ë´¦ĞèÓÃÒıÓÃ
+        for(Node &it: vec){//æ­¤å¤„éœ€ç”¨å¼•ç”¨
            if(!searchNo.compare(it.staff->getNo())){
                 it.isEmployed = false;
-                cout<<"ÒÑ±ê¼Ç"<<endl; 
+                cout<<"å·²æ ‡è®°"<<endl; 
                 return;
             }      
         }
         cin.ignore(100, '\n');
-        cout<<"²éÎŞ´ËÈË"<<endl;
+        cout<<"æŸ¥æ— æ­¤äºº"<<endl;
         break;
     }
     else if(c == 2){
-        cout<<"ÇëÊäÈëÔ±¹¤ĞÕÃû:";//Ğè¿¼ÂÇ¿ÉÄÜÖØÃûµÄÇé¿ö
+        cout<<"è¯·è¾“å…¥å‘˜å·¥å§“å:";//éœ€è€ƒè™‘å¯èƒ½é‡åçš„æƒ…å†µ
         cin>>searchName;
         for(Node &it: vec){
            if(!searchName.compare(it.staff->getName())){
                 it.isEmployed = false;
-                cout<<"ÒÑ±ê¼Ç"<<endl; 
+                cout<<"å·²æ ‡è®°"<<endl; 
                 return; 
             }     
         }
         cin.ignore(100, '\n');
-        cout<<"²éÎŞ´ËÈË"<<endl;
+        cout<<"æŸ¥æ— æ­¤äºº"<<endl;
         break;
     }
     else if(c == 0){return;}
     else{
-        cout<<"ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë"<<endl;
+        cout<<"è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥"<<endl;
     }
     }
 }
@@ -354,7 +354,7 @@ void ManagementSystem::updateStaff(){
     int c, age;
     string searchNo, no, name, title;
     double sales;
-    cout<<"ÇëÊäÈëÔ±¹¤ºÅ:";
+    cout<<"è¯·è¾“å…¥å‘˜å·¥å·:";
     cin>>searchNo;
 
     vector<Node>::iterator it;
@@ -365,50 +365,50 @@ void ManagementSystem::updateStaff(){
             age = it->staff->getAge();
             while(1){           
             	while(1){
-                	cout<<"1.Ô±¹¤ºÅ2.ĞÕÃû3.ÄêÁä4.Ö°Î»(5.ÓªÏú¶î)\nÒªĞŞ¸Ä(ÍË³öÇëÊäÈë0):";
+                	cout<<"1.å‘˜å·¥å·2.å§“å3.å¹´é¾„4.èŒä½(5.è¥é”€é¢)\nè¦ä¿®æ”¹(é€€å‡ºè¯·è¾“å…¥0):";
                 	cin>>c;
-                	if (cin.good() == 1);//ÊäÈëĞèÎªÕûÊı
-                	else{cout<<"ÊäÈë´íÎó."<<endl;cin.clear();cin.sync();continue;}
+                	if (cin.good() == 1);//è¾“å…¥éœ€ä¸ºæ•´æ•°
+                	else{cout<<"è¾“å…¥é”™è¯¯."<<endl;cin.clear();cin.sync();continue;}
                 	break;
             	}
             
-            if(c == 0) return;//ÊÇ0ÔòÍË³ö 
+            if(c == 0) return;//æ˜¯0åˆ™é€€å‡º 
             switch (c)
             {
             case 1:
-                cout<<"ÇëÊäÈëÔ±¹¤ºÅ:";cin>>no;
+                cout<<"è¯·è¾“å…¥å‘˜å·¥å·:";cin>>no;
                 cin.ignore(100, '\n');
                 it->staff->setNo(no);
                 break;
             case 2:
-                cout<<"ÇëÊäÈëÔ±¹¤ĞÕÃû:";cin>>name;
+                cout<<"è¯·è¾“å…¥å‘˜å·¥å§“å:";cin>>name;
                 cin.ignore(100, '\n');
                 it->staff->setName(name);
                 break;
             case 3:
                 while(1){
-                    cout<<"ÇëÊäÈëÔ±¹¤ÄêÁä:";cin>>age;
+                    cout<<"è¯·è¾“å…¥å‘˜å·¥å¹´é¾„:";cin>>age;
                     if (cin.good() == 1) cin.ignore(100, ' ');
-                    else{cout<<"ÄêÁäĞèÎªÕûÊı."<<endl;cin.clear();cin.sync();continue;}
+                    else{cout<<"å¹´é¾„éœ€ä¸ºæ•´æ•°."<<endl;cin.clear();cin.sync();continue;}
                     break;
                 }
                 it->staff->setAge(age);
                 break;
             case 4:
                 while(1){
-                cout<<"ÇëÊäÈëÔ±¹¤Ö°Î»:";cin>>title;
+                cout<<"è¯·è¾“å…¥å‘˜å·¥èŒä½:";cin>>title;
                 cin.ignore(100, '\n');
-                if(inTitles(title)) ;// titleÖ»ÄÜÎª3ÖÖ
-                else{cout<<"Ö°Î»ÊäÈë´íÎó."<<endl;cin.ignore(100, '\n');continue;}
+                if(inTitles(title)) ;// titleåªèƒ½ä¸º3ç§
+                else{cout<<"èŒä½è¾“å…¥é”™è¯¯."<<endl;cin.ignore(100, '\n');continue;}
                 break;
                 }
 
                 if(isManager(it->staff->getTitle())){
-                    if(isManager(title)){cout<<"Ö°Î»ÖØ¸´"<<endl;return;}
+                    if(isManager(title)){cout<<"èŒä½é‡å¤"<<endl;return;}
                     else{
-                        cout<<"ÇëÔÙÊäÈëÆäÏúÊÛ¶î:";
+                        cout<<"è¯·å†è¾“å…¥å…¶é”€å”®é¢:";
                         cin>>sales;
-                        Node *newNode = (Node *) malloc(sizeof(Node)); //·ÖÅäÒ»¿éĞÂ½áµãµÄ¿Õ¼ä, ²¢ÈÃnewNodeÖ¸ÏòËü
+                        Node *newNode = (Node *) malloc(sizeof(Node)); //åˆ†é…ä¸€å—æ–°ç»“ç‚¹çš„ç©ºé—´, å¹¶è®©newNodeæŒ‡å‘å®ƒ
                         if (isSalesman(title)) {
                             newNode->staff = new Salesman(no, name, age, sales);
                             newNode->isEmployed = true;
@@ -418,13 +418,13 @@ void ManagementSystem::updateStaff(){
                             newNode->isEmployed = true;
                         }
                         
-                        it = vec.erase(it); //·µ»ØÖ¸Ïò±»É¾³ıÔªËØµÄÏÂÒ»¸öµÄÖ¸Õë 
-                        it = vec.insert(it, *newNode);//ÍùÖ¸ÏòÔªËØÇ°Ôö¼ÓÒ»¸öÔªËØ 
+                        it = vec.erase(it); //è¿”å›æŒ‡å‘è¢«åˆ é™¤å…ƒç´ çš„ä¸‹ä¸€ä¸ªçš„æŒ‡é’ˆ 
+                        it = vec.insert(it, *newNode);//å¾€æŒ‡å‘å…ƒç´ å‰å¢åŠ ä¸€ä¸ªå…ƒç´  
                     }
                 }
                 else{
                     if(!title.compare(it->staff->getTitle())){
-                        cout<<"Ö°Î»ÖØ¸´"<<endl;
+                        cout<<"èŒä½é‡å¤"<<endl;
                         return;
                     }
                     else{
@@ -432,8 +432,8 @@ void ManagementSystem::updateStaff(){
                             Node *newNode = (Node *) malloc(sizeof(Node)); 
                             newNode->staff = new Manager(no, name, age);
                             newNode->isEmployed = true;
-                            it = vec.erase(it); //·µ»ØÖ¸Ïò±»É¾³ıÔªËØµÄÏÂÒ»¸öµÄÖ¸Õë 
-                            it = vec.insert(it, *newNode);//ÍùÖ¸ÏòÔªËØÇ°Ôö¼ÓÒ»¸öÔªËØ 
+                            it = vec.erase(it); //è¿”å›æŒ‡å‘è¢«åˆ é™¤å…ƒç´ çš„ä¸‹ä¸€ä¸ªçš„æŒ‡é’ˆ 
+                            it = vec.insert(it, *newNode);//å¾€æŒ‡å‘å…ƒç´ å‰å¢åŠ ä¸€ä¸ªå…ƒç´  
                         }
                         else if(isSalesman(title)){
                             Node *newNode = (Node *) malloc(sizeof(Node)); 
@@ -455,11 +455,11 @@ void ManagementSystem::updateStaff(){
                 break;
             case 5:
                 if(isManager(it->staff->getTitle())){
-                    cout<<"¾­ÀíÎŞÏúÊÛ¶îÒ»Ëµ."<<endl;
+                    cout<<"ç»ç†æ— é”€å”®é¢ä¸€è¯´."<<endl;
                     return;
                 }
                 else{
-                    cout<<"ÇëÊäÈëÏúÊÛ¶î:";cin>>sales;
+                    cout<<"è¯·è¾“å…¥é”€å”®é¢:";cin>>sales;
                     cin.ignore(100, '\n');
                     it->staff->setSales(sales);
                 }
@@ -468,30 +468,30 @@ void ManagementSystem::updateStaff(){
             default:
                 break;
             }
-			cout << "Ô±¹¤ĞÅÏ¢ÒÑĞŞ¸Ä." << endl;
+			cout << "å‘˜å·¥ä¿¡æ¯å·²ä¿®æ”¹." << endl;
             return;
             }      
         }
         else it++; 
     
     }
-    cout<<"²éÎŞ´ËÈË"<<endl;
+    cout<<"æŸ¥æ— æ­¤äºº"<<endl;
 }
 
 void ManagementSystem::fireStaffs(){
     vector<Node>::iterator it;
     for(it = vec.begin(); it != vec.end();){
         if(it->isEmployed == false){
-            it = vec.erase(it); //·µ»ØÖ¸Ïò±»É¾³ıÔªËØµÄÏÂÒ»¸öµÄÖ¸Õë
-        }//Èç¹ûÉ¾³ıµÄÊÇ×îºóÒ»¸öÔªËØÔòÖ¸ÏòÉ¾³ıºóµÄ×îºóÒ»¸ö 
+            it = vec.erase(it); //è¿”å›æŒ‡å‘è¢«åˆ é™¤å…ƒç´ çš„ä¸‹ä¸€ä¸ªçš„æŒ‡é’ˆ
+        }//å¦‚æœåˆ é™¤çš„æ˜¯æœ€åä¸€ä¸ªå…ƒç´ åˆ™æŒ‡å‘åˆ é™¤åçš„æœ€åä¸€ä¸ª 
         else it++;
     }
-    cout<<"Íê³É²Ù×÷"<<endl;
+    cout<<"å®Œæˆæ“ä½œ"<<endl;
 }
 
 void ManagementSystem::recombineFile(){
-    fireStaffs();//±£´æÇ°É¾³ı´ı½â¹ÍÔ±¹¤
-    ofstream outfile("staff.txt", ios::out | ios::trunc);//ÖØĞ´ÎÄ¼ş
+    fireStaffs();//ä¿å­˜å‰åˆ é™¤å¾…è§£é›‡å‘˜å·¥
+    ofstream outfile("staff.txt", ios::out | ios::trunc);//é‡å†™æ–‡ä»¶
     vector<Node>::iterator it;
     for(it = vec.begin(); it != vec.end(); it++){
         outfile<<it->staff->getNo()<<" "<<it->staff->getName()
@@ -507,19 +507,19 @@ void ManagementSystem::SelectFunction(){
     int c, age;
     string no, name, title;
     double sales;
-    cout<<"»¶Ó­Ê¹ÓÃÏúÊÛ¹«Ë¾Ô±¹¤¹ÜÀíÏµÍ³!"<<endl;
+    cout<<"æ¬¢è¿ä½¿ç”¨é”€å”®å…¬å¸å‘˜å·¥ç®¡ç†ç³»ç»Ÿ!"<<endl;
     while(true){
     	cout<<
 		" -------------------------------------------------\n";
         cout<<
-		"    Ñ¡Ôñ¹¦ÄÜ:(1)²éÑ¯ËùÓĞÔ±¹¤ĞÅÏ¢ (2)²éÑ¯Ô±¹¤ĞÅÏ¢\n"<<
-		" (3)²éÑ¯ÈËÊı (4)±ê¼Ç´ı½â¹ÍÔ±¹¤   (5)½â¹ÍÒÑ±ê¼ÇÔ±¹¤\n"<<
-		" (6)Ìí¼ÓÔ±¹¤ (7)ĞŞ¸ÄÔ±¹¤ĞÅÏ¢     (0)±£´æ²¢ÍË³ö    \n"<<
+		"    é€‰æ‹©åŠŸèƒ½:(1)æŸ¥è¯¢æ‰€æœ‰å‘˜å·¥ä¿¡æ¯ (2)æŸ¥è¯¢å‘˜å·¥ä¿¡æ¯\n"<<
+		" (3)æŸ¥è¯¢äººæ•° (4)æ ‡è®°å¾…è§£é›‡å‘˜å·¥   (5)è§£é›‡å·²æ ‡è®°å‘˜å·¥\n"<<
+		" (6)æ·»åŠ å‘˜å·¥ (7)ä¿®æ”¹å‘˜å·¥ä¿¡æ¯     (0)ä¿å­˜å¹¶é€€å‡º    \n"<<
 		" -------------------------------------------------"<<endl;
-		cout<<"Ñ¡Ôñ:"; 
+		cout<<"é€‰æ‹©:"; 
         cin>>c;
         if (cin.good() == 1);
-        else{cout<<"ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë."<<endl;cin.clear();cin.sync();continue;}
+        else{cout<<"è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥."<<endl;cin.clear();cin.sync();continue;}
         switch (c)
         {
         case 1:
@@ -547,8 +547,8 @@ void ManagementSystem::SelectFunction(){
             recombineFile();cout<<endl;
             break;
         default:
-            cout<<"ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë."<<endl;
-            cin.ignore(100, '\n');//·ÀÖ¹´íÎóÊäÈë Çå³ı»º³åÇø 
+            cout<<"è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥."<<endl;
+            cin.ignore(100, '\n');//é˜²æ­¢é”™è¯¯è¾“å…¥ æ¸…é™¤ç¼“å†²åŒº 
             break;
         }
         if(c == 0) break;
